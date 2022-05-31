@@ -6,7 +6,7 @@ from loader.exceptions import OutOfFreeNamesError, PictureValueErrorFormat, Pict
 
 class UploadManager:
     def get_free_filename(self, folder, file_type):
-
+        '''Делаем подборку свободного рандомного свободного имени для загружаемого файла'''
         attempts = 0
         RANGE_OF_IMAGE_NUBMBERS = 100
         LIMITS_OF_ATEMPTS = 1000

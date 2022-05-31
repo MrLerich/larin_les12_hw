@@ -5,11 +5,11 @@ from .upload_manager import UploadManager
 
 loader_blueprint = Blueprint('loader_blueprint', __name__, template_folder='templates')
 
-@loader_blueprint.route('/post', methods=['GET'])
+@loader_blueprint.route('/post/', methods=['GET'])
 def page_form():
     return render_template('post_form.html')
 
-@loader_blueprint.route('/post', methods=['POST'])
+@loader_blueprint.route('/post/', methods=['POST'])
 def page_create_posts():
 
     path = current_app.config.get('POST_PATH')
@@ -36,12 +36,12 @@ def page_create_posts():
 
 @loader_blueprint.errorhandler(OutOfFreeNamesError)
 def error_out_of_free_names(e):
-    return 'Закончились имена для загружаемых картинок. Заканчивайте заниматься ерундой - идите погуляйте на улице!'@loader_blueprint.errorhandler(OutOfFreeNamesError)
+    return 'Закончились имена для загружаемых картинок. Заканчивайте заниматься ерундой - идите погуляйте на улице!'
 
 @loader_blueprint.errorhandler(PictureValueErrorFormat)
 def error_picture_value_error_format(e):
-    return 'Такой формат картинок не поддерживается данным сайтом'
+    return f'Такой формат картинок не поддерживается данным сайтом <br> <a href="/" class="link">Попробуйте еще раз</a>'
 
 @loader_blueprint.errorhandler(PictureNotUploadedError)
 def error_picture_not_upload(e):
-    return 'Не удалось произвести загрузку картинки'
+    return 'Не удалось произвести загрузку картинки <br> <a href="/" class="link">Попробуйте еще раз</a>'
