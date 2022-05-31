@@ -10,10 +10,12 @@ logger = logging.getLogger('basic')
 
 @main_blueprint.route('/')
 def main_page():
+    '''Вьюшка возвращает главную страницу'''
     return render_template('index.html')
 
 @main_blueprint.route('/search/')
 def search_page():
+    '''Вьюшка страницы поиска'''
     path = current_app.config.get('POST_PATH')
     data_manager = DataManager(path)
 
@@ -29,5 +31,6 @@ def search_page():
 
 @main_blueprint.errorhandler(DataSourceBrokenException)
 def data_source_broken_error(e):
+    '''Вьюшка обработчик ошибки DB повреждена'''
     return 'Файл с данными поврежден'
 

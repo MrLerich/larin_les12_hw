@@ -5,8 +5,14 @@ from loader.exceptions import OutOfFreeNamesError, PictureValueErrorFormat, Pict
 
 
 class UploadManager:
+
     def get_free_filename(self, folder, file_type):
-        '''Делаем подборку свободного рандомного свободного имени для загружаемого файла'''
+        '''
+        Делаем подборку свободного рандомного свободного имени для загружаемого файла картинок
+        :param folder:
+        :param file_type:
+        :return:
+        '''
         attempts = 0
         RANGE_OF_IMAGE_NUBMBERS = 100
         LIMITS_OF_ATEMPTS = 1000
@@ -26,11 +32,21 @@ class UploadManager:
                 raise OutOfFreeNamesError('No more free names to save Image')
 
     def is_file_type_valied(self, file_type):
+        '''
+        Проверяем подходящий формат загружаемой картинки
+        :param file_type:
+        :return:
+        '''
         if file_type.lower() in ['jpeg', 'gif', 'png', 'jpg', 'webp', 'tiff']:
             return True
         return False
 
     def save_with_random_filename(self, picture):
+        '''
+        Сохранить картинку с рандомным именем
+        :param picture:
+        :return:
+        '''
 
         # Работаем с картинкой
 

@@ -6,7 +6,7 @@ from loader.views import loader_blueprint
 import loggers
 
 app = Flask(__name__)
-
+#Регистрируем blueprint
 app.register_blueprint(main_blueprint)
 app.register_blueprint(loader_blueprint)
 
