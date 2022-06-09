@@ -6,7 +6,7 @@ def create_logger():
     logger.setLevel(logging.DEBUG)
 
     console_handler = logging.StreamHandler()
-    file_handler = logging.FileHandler('logs/basic.txt')
+    file_handler = logging.FileHandler('logs/basic.log')
 
     logger.addHandler(console_handler)
     logger.addHandler(file_handler)
